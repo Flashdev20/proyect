@@ -1,0 +1,40 @@
+%table
+%tbody
+  %tr
+    %th Name
+    %th Population
+    %th State
+    %th Country
+    %th Zip Code
+    %th Description
+  - @cities.each do |city|
+  %tr
+    %td city.name
+    %td city.population
+    %td city.state
+    %td city.country
+    %td city.zip_code
+    %td city.description
+    = link_to "Edit", edit_city_path(city.zip_code)
+    = link_to "Delete", delete_city_path(city.zip_code)
+= button_to"New City", new_city_path
+  %br
+  %br
+%table
+%tbody
+  %tr
+    %th Address
+    %th City
+    %th Description
+    %th Opening schedule
+    %th Closing schedule
+  - @places.each do |place|
+  %tr
+    %td place.address
+    %td place.city
+    %td place.description
+    %td place.opening_schedule
+    %td place.closing_schedule
+    = link_to "Edit", edit_place_path(place.id)
+    = link_to "Delete", delete_place_path(place.id)
+= button_to"New Place", new_place_path
